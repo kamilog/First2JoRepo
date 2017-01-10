@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var xhr=null;
+	function getData(){
+		xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=getResult;
+		xhr.open("get","json1.jsp",true);
+		xhr.send();
+	}
+	function getResult(){
+		if(xhr.readyState==4 && xhr.status==200){
+			var data=xhr.responseText;
+			var json=eval("(" + data +")");//문자열을 json객체로 만들기
+			//var json={"id":"song","pwd":"1234"};
+			//alert(json);
+			var str="아이디:" + json.id +",비밀번호:" + json.pwd;
+			var result=document.getElementById("result");
+			result.innerHTML=str;
+		}
+	}
+</script>
+</head>
+<body>
+<input type="button" value="json결과얻어오기" onclick="getData()">
+<div id="result">
+</div>
+</body>
+</html>
+
+
+
+

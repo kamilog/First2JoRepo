@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var xhr=null;
+	function getInfo(){
+		xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=getResult;
+		xhr.open("get","json2.jsp",true);
+		xhr.send();
+	}
+	function getResult(){
+		if(xhr.readyState==4 && xhr.status==200){
+			
+		}
+	}
+</script>
+</head>
+<body>
+회원아이디 <input type="text" id="id">
+<input type="button" value="조회하기" onclick="getInfo()">
+<div id="result">
+</div>
+</body>
+</html>

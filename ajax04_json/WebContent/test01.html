@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/*
+ 	[ JSON ]
+	- 서로 다른 프로그래밍 언어간의 데이터 통신을 위한 표기법(읽고 쓰기 쉬운 표현법)
+	- 경량의 데이터를 교환하는 방식으로 인터넷에서 데이터를 주고받을때 표현하는 방법이디ㅏ.
+	- name/value 형태의 한쌍으로 표현된다.	
+	예)
+	var user={"id":"song","pwd":"1234"};
+	console.log(user.id +"," + user.pwd);
+ */
+ 	var user={"id":"song","pwd":"1234"};
+	console.log(user.id +"," + user.pwd);
+	
+	//json배열
+	var users=[{"id":"song","pwd":"1234"},
+	          {"id":"kim","pwd":"5678"},
+	          {"id":"lee","pwd":"0009"}];
+	for(var i=0;i<users.length;i++){
+		var mem=users[i];
+		console.log("아이디:" + mem.id +"," +"비밀번호:" + mem.pwd);
+	}
+	//value가 배열과 단일값이 섞인경우
+	var members={"grade":"gold",
+			     "list":[{"id":"song","name":"홍길동"},
+			             {"id":"kim","name":"김아무"},
+			             {"id":"lee","name":"이아무"}]
+	};
+	console.log("회원등급:" + members.grade);
+	console.log("해당등급회원명단");
+	for(var i=0;i<members.list.length;i++){
+		var mm=members.list[i];
+		console.log("아이디:" + mm.id +",이름:" + mm.name);
+	}
+	
+	// 1. myusers : 한명의 아이디 ,비밀번호,이메일,전화번호에 대한 정보를 갖는 json객체를 만들고
+	// 데이터를 출력해 보세요.
+	
+	// 2. myusers : 여러명의 아이디 ,비밀번호,이메일,전화번호에 대한 정보를 갖는 json객체를 만들고
+	// 데이터를 출력해 보세요.
+	
+	
+	var user1='{"id":"song","pwd":"1234"}';
+	//문자열을 json객체로 변환하기
+	//var uu=eval("(" +  user1 + ")");
+	var uu=JSON.parse(user1); //문자열을 json객체로 변환 ie8버전이상
+	console.log("문자열을 json객체로 변환");
+	console.log(uu.id +"," + uu.pwd);
+	
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
